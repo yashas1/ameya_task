@@ -9,7 +9,7 @@ const DatePickerComponent = () => {
 
   return (
     <>
-      <LocalizationProvider disabled dateAdapter={AdapterDayjs}>
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DatePicker
           label="Custom input"
           value={value}

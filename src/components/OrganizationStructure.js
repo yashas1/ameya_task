@@ -2,7 +2,7 @@ import React from "react";
 import { Typography } from "@mui/material";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
-import TableCell, { tableCellClasses } from "@mui/material/TableCell";
+import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
@@ -17,13 +17,13 @@ function createData(Groups, Subgroups, Clinics) {
 }
 
 const useStyles = makeStyles({
-  tabelBorder: {
+  TableContainerStyle: {
     border: "2px solid #1F1769 ",
+    borderRadius: "6px"
   },
   table: {
     "& .MuiTableCell-root": {
       borderLeft: "2px solid #1F1769",
-      borderRight: "2px solid #1F1769",
       borderBottom: "none",
     },
   },
@@ -34,16 +34,14 @@ const useStyles = makeStyles({
     "&:hover": {
       background: "#1F1769",
       color: "#8F5FCA",
-    },
-    display: "flex",
-    alignItems: "center",
+    }
   },
   icon: {
     fill: "black",
     borderLeft: "solid 2px black",
     paddingleft: "8px",
     marginleft: "8px",
-  },
+  }
 });
 const typeData = (data) => {
   return (
@@ -71,21 +69,20 @@ const rows = [
 const OrganizationStructure = () => {
   const classes = useStyles();
   return (
-    <>
+    <div className="tableSection">
       <ComponentHeader value={"Organization Structure"} />
-      <TableContainer component={Paper}>
+      <TableContainer className={classes.TableContainerStyle} component={Paper}>
         <Table className={classes.table}>
-          <TableHead sx={{ border: 2, borderColor: "#1F1769" }}>
+          <TableHead sx={{ borderBottom: "2px solid #1F1769", background: "#eeedf6", borderRadius: 0 }}>
             <TableRow>
               <TableCell>
-                <ComponentHeader value={"Groups"} />
-              </TableCell>
-
-              <TableCell>
-                <ComponentHeader value={"Subgroups"} />
+                <p className="tabelHeading">Groups</p>
               </TableCell>
               <TableCell>
-                <ComponentHeader value={"Clinics / Cohorts"} />
+                <p className="tabelHeading">Subgroups</p>
+              </TableCell>
+              <TableCell>
+                <p className="tabelHeading">Clinics / Cohorts</p>
               </TableCell>
             </TableRow>
           </TableHead>
@@ -102,7 +99,7 @@ const OrganizationStructure = () => {
           </TableBody>
           <TableHead>
             <TableRow>
-              <TableCell className={classes.tabelBorder}>
+              <TableCell align="center" sx={{ borderTop: "4px solid #1F1769" }}>
                 <Button
                   className={classes.button}
                   endIcon={<Add className={classes.icon} />}
@@ -111,7 +108,7 @@ const OrganizationStructure = () => {
                 </Button>
               </TableCell>
 
-              <TableCell className={classes.tabelBorder}>
+              <TableCell align="center" sx={{ borderTop: "4px solid #1F1769" }}>
                 <Button
                   className={classes.button}
                   endIcon={<Add className={classes.icon} />}
@@ -119,12 +116,12 @@ const OrganizationStructure = () => {
                   Add New
                 </Button>
               </TableCell>
-              <TableCell className={classes.tabelBorder}></TableCell>
+              <TableCell sx={{ borderTop: "4px solid #1F1769" }}></TableCell>
             </TableRow>
           </TableHead>
         </Table>
       </TableContainer>
-    </>
+    </div>
   );
 };
 export default OrganizationStructure;

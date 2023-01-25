@@ -1,5 +1,5 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
+
 import ComponentHeader from "./ComponentHeader";
 import NutritionAnalysis from "./AnalysisComponents/NutritionAnalysis";
 import MovementAnalysis from "./AnalysisComponents/MovementAnalysis";

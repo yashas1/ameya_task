@@ -8,7 +8,8 @@ import OrganizationForm from "./components/OrganizationForm";
 import ContactForm from "./components/ContactForm";
 import OrganizationStructure from "./components/OrganizationStructure";
 import FeaturesComponent from "./components/FeaturesComponent";
-
+import ButtonComponent from "./components/subComponents/ButtonComponent";
+import SideBar from "./components/SideBar";
 let theme = createTheme({
   typography: {
     fontFamily: "Cabin,sans-serif",
@@ -22,6 +23,7 @@ function App() {
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
+        <SideBar />
         <Header />
         <Banner />
         <Container maxWidth="md">
@@ -29,6 +31,7 @@ function App() {
           <ContactForm />
           <OrganizationStructure />
           <FeaturesComponent />
+          <ButtonComponent />
         </Container>
       </ThemeProvider>
     </div>

@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Box from "@mui/material/Box";
 import { Grid, Typography } from "@mui/material";
 
-import { Checkbox } from "@material-ui/core";
+import FeaturesHeaer from "../subComponents/FeaturesHeader";
 
 import DatePickerComponent from "../DatePickerComponent";
 const useStyles = makeStyles((theme) => ({
@@ -35,58 +35,31 @@ const ActivityAnalysis = () => {
   const classes = useStyles();
   return (
     <>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          p: 1,
-        }}
-      >
-        <Checkbox defaultChecked style={{ color: "green" }} />
-        <Box sx={{ m: 2 }}>
-          <i class="fa-2x fa-solid fa-bolt"></i>
+      <FeaturesHeaer iconClasses={"fa-2x fa-solid fa-bolt"} title={"Activity Analysis"} />
+      <div className="disableActivity">
+        <Box className={classes.box}>
+          <Typography
+            className={classes.textFiledNoBold}
+            edge="start"
+            variant="h6"
+            component="div"
+          >
+            Feature not activated
+          </Typography>
+          <Grid container spacing={2} className="custom">
+            <Grid item xs={6}>
+              <div className="datePickerStyle disabled">
+                <DatePickerComponent />
+              </div>
+            </Grid>
+            <Grid item xs={6}>
+              <div className="datePickerStyle disabled">
+                <DatePickerComponent />
+              </div>
+            </Grid>
+          </Grid>
         </Box>
-
-        <Typography
-          edge="start"
-          className={classes.textField}
-          variant="h6"
-          component="div"
-        >
-          Wellness Analysis
-        </Typography>
-      </Box>
-      <Box className={classes.box}>
-        <Grid container spacing={2} className="custom">
-          <Grid item xs={6}>
-            <Typography
-              className={classes.textFiledNoBold}
-              edge="start"
-              variant="h6"
-              component="div"
-            >
-              Feature valid from:
-            </Typography>
-            <Box>
-              <DatePickerComponent />
-            </Box>
-          </Grid>
-          <Grid item xs={6}>
-            <Typography
-              className={classes.textFiledNoBold}
-              edge="start"
-              variant="h6"
-              component="div"
-            >
-              Feature valid until:
-            </Typography>
-
-            <Box>
-              <DatePickerComponent />
-            </Box>
-          </Grid>
-        </Grid>
-      </Box>
+      </div>
     </>
   );
 };
