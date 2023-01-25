@@ -11,13 +11,8 @@ let theme = createTheme({
   typography: {
     fontFamily: "Cabin,sans-serif",
   },
-  palette: {
-    primary: {
-      main: "#0052cc",
-    },
-    secondary: {
-      main: "#edf2ff",
-    },
+  textFieldBorder: {
+    border: "1px solid blue",
   },
 });
 

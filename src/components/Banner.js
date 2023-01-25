@@ -10,7 +10,6 @@ const Banner = () => {
         component="div"
         sx={{
           fontSize: 24,
-          fontFamily: "Cabin,sans-serif",
           fontWeight: "bold",
           color: "#1F1769",
         }}
