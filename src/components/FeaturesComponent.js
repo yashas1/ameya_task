@@ -6,13 +6,15 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import ComponentHeader from "./ComponentHeader";
 import { makeStyles } from "@material-ui/core/styles";
-import { Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import { Checkbox, Step, StepIcon } from "@material-ui/core";
-
+import { width } from "@mui/system";
+import DatePickerComponent from "./DatePickerComponent";
+import ChecklistComponent from "./subComponents/ChecklistComponent";
 const useStyles = makeStyles((theme) => ({
   box: {
     padding: theme.spacing(2),
-    border: "2px solid black",
+    border: "2px solid #1F1769",
     borderRadius: "10px",
   },
   datePicker: {
@@ -26,15 +28,19 @@ const useStyles = makeStyles((theme) => ({
     color: "#1F1769",
     display: "flex",
   },
+  textFiledNoBold: {
+    fontSize: "18!important",
+    color: "#1F1769",
+    display: "flex",
+  },
 }));
 
 const FeaturesComponent = () => {
   const classes = useStyles();
-  const [value, setValue] = React.useState(dayjs("2022-04-07"));
-  const label = { inputProps: { "aria-label": "Checkbox demo" } };
+
   return (
     <>
-      <ComponentHeader value={"Feature Valid Form"} />
+      <ComponentHeader value={"Features"} />
 
       <Box
         sx={{
@@ -43,7 +49,7 @@ const FeaturesComponent = () => {
           p: 1,
         }}
       >
-        <Checkbox {...label} defaultChecked style={{ color: "green" }} />
+        <Checkbox defaultChecked style={{ color: "green" }} />
         <Box sx={{ m: 2 }}>
           <i class="fa-2x fa-solid fa-gauge-simple-high"></i>
         </Box>
@@ -57,38 +63,41 @@ const FeaturesComponent = () => {
           Movement Analysis
         </Typography>
       </Box>
-
       <Box className={classes.box}>
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <DatePicker
-            label="Custom input"
-            value={value}
-            onChange={(newValue) => {
-              setValue(newValue);
-            }}
-            renderInput={({ inputRef, inputProps, InputProps }) => (
-              <Box sx={{ display: "flex", alignItems: "center" }}>
-                <input ref={inputRef} {...inputProps} />
-                {InputProps?.endAdornment}
-              </Box>
-            )}
-          />
-        </LocalizationProvider>
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <DatePicker
-            label="Custom input"
-            value={value}
-            onChange={(newValue) => {
-              setValue(newValue);
-            }}
-            renderInput={({ inputRef, inputProps, InputProps }) => (
-              <Box sx={{ display: "flex", alignItems: "center" }}>
-                <input ref={inputRef} {...inputProps} />
-                {InputProps?.endAdornment}
-              </Box>
-            )}
-          />
-        </LocalizationProvider>
+        <Grid container spacing={2} className="custom">
+          <Grid item xs={6}>
+            <Typography
+              className={classes.textFiledNoBold}
+              edge="start"
+              variant="h6"
+              component="div"
+            >
+              Feature valid from:
+            </Typography>
+            <Box>
+              <DatePickerComponent />
+            </Box>
+            <ChecklistComponent value={"Movement 1"} />
+            <ChecklistComponent value={"Movement 3"} />
+            <ChecklistComponent value={"Movement 5"} />
+          </Grid>
+          <Grid item xs={6}>
+            <Typography
+              className={classes.textFiledNoBold}
+              edge="start"
+              variant="h6"
+              component="div"
+            >
+              Feature valid until:
+            </Typography>
+
+            <Box>
+              <DatePickerComponent />
+              <ChecklistComponent value={"Movement 2"} />
+              <ChecklistComponent value={"Movement 4"} />
+            </Box>
+          </Grid>
+        </Grid>
       </Box>
     </>
   );
