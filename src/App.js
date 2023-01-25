@@ -1,6 +1,5 @@
-import logo from "./logo.svg";
 import "./App.css";
-
+import "./style.css";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Header from "./components/Header";
 import Container from "@mui/material/Container";
@@ -8,6 +7,8 @@ import Banner from "./components/Banner";
 import OrganizationForm from "./components/OrganizationForm";
 import ContactForm from "./components/ContactForm";
 import OrganizationStructure from "./components/OrganizationStructure";
+import FeaturesComponent from "./components/FeaturesComponent";
+
 let theme = createTheme({
   typography: {
     fontFamily: "Cabin,sans-serif",
@@ -27,6 +28,7 @@ function App() {
           <OrganizationForm />
           <ContactForm />
           <OrganizationStructure />
+          <FeaturesComponent />
         </Container>
       </ThemeProvider>
     </div>

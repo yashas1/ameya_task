@@ -9,7 +9,7 @@ const ComponentHeader = (props) => {
         edge="start"
         component="div"
         sx={{
-          m: 2,
+          m: 4,
           fontSize: 24,
           fontWeight: "bold",
           color: "#1F1769",

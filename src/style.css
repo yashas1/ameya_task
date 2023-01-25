@@ -1,0 +1,70 @@
+:root {
+    --white: #fff;
+    --grey: #eeedf6;
+    --cyan: #5fe5e5;
+    --mauve: #bf84c0;
+    --eggplant: #8f5fca;
+    --indigo: #1f1769;
+}
+header.MuiPaper-root{
+    background: var(--indigo);
+}
+header.MuiPaper-root .MuiToolbar-root{
+    justify-content: space-between;
+}
+.custom .MuiFormControl-root{
+    background-color: var(--grey)!important;
+}
+.custom .MuiFormLabel-root{
+    color:var(--eggplant);
+    font-size: 18px;
+    line-height: 24px;
+}
+.custom .MuiFormLabel-root.Mui-focused{
+    background-color: var(--grey);
+    padding-inline:4px;
+}
+.custom .MuiFormLabel-root.Mui-focused{
+    color: var(--eggplant);
+}
+.custom .MuiInputBase-input{
+    border: 2px solid var(--indigo);
+    border-radius: 4px;
+}
+.customBox{
+    background-color: var(--grey);
+    margin-block: 20px;
+    padding-block: 20px;
+}
+.customBox h6{
+    font-size: 22px;
+    line-height: 30px;
+    color: var(--indigo);
+    font-weight: 600;
+}
+.mb-3{
+    margin-bottom: 15px!important;
+}
+.card{
+    margin-top: 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--eggplant);
+    border: 2px solid var(--indigo);
+    border-radius: 12px!important;
+    padding-block: 20px;
+    background-color: var(--grey)!important;
+}
+.card .MuiSvgIcon-root{
+    color: var(--eggplant);
+    transform: scale(2);
+    margin-bottom: 20px;
+}
+.card .MuiTypography-root{
+    margin-inline: 60px;
+    font-size: 22px;
+    font-weight: 400;
+}

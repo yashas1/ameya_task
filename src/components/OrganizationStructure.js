@@ -8,41 +8,83 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import ComponentHeader from "./ComponentHeader";
+import { makeStyles } from "@material-ui/core/styles";
+
+import { Button, Icon } from "@material-ui/core";
+import { Add } from "@material-ui/icons";
 function createData(Groups, Subgroups, Clinics) {
   return { Groups, Subgroups, Clinics };
 }
 
+const useStyles = makeStyles({
+  tabelBorder: {
+    border: "2px solid #1F1769 ",
+  },
+  table: {
+    "& .MuiTableCell-root": {
+      borderLeft: "2px solid #1F1769",
+      borderRight: "2px solid #1F1769",
+      borderBottom: "none",
+    },
+  },
+
+  button: {
+    color: "#8F5FCA",
+    border: "solid 2px #1F1769",
+    "&:hover": {
+      background: "#1F1769",
+      color: "#8F5FCA",
+    },
+    display: "flex",
+    alignItems: "center",
+  },
+  icon: {
+    fill: "black",
+    borderLeft: "solid 2px black",
+    paddingleft: "8px",
+    marginleft: "8px",
+  },
+});
+const typeData = (data) => {
+  return (
+    <Typography
+      edge="start"
+      component="div"
+      sx={{
+        fontSize: 18,
+        color: "#1F1769",
+        display: "flex",
+        fontWeight: "bold",
+      }}
+    >
+      {data}
+    </Typography>
+  );
+};
 const rows = [
-  createData("Critical Care Unit", "Cancer Unit"),
-  createData("Gastroenterology", "Lung Cancer"),
-  createData("Pediatrics"),
-  createData("Hematology"),
-  createData("Emergency Care"),
+  createData("Critical Care Unit", "Cancer Unit", ""),
+  createData("Gastroenterology", "Lung Cancer", ""),
+  createData("Pediatrics", "", ""),
+  createData("Hematology", "", ""),
+  createData("Emergency Care", "", ""),
 ];
 const OrganizationStructure = () => {
+  const classes = useStyles();
   return (
     <>
       <ComponentHeader value={"Organization Structure"} />
       <TableContainer component={Paper}>
-        <Table
-          sx={{
-            minWidth: 650,
-            [`& .${tableCellClasses.root}`]: {
-              borderBottom: "none",
-            },
-          }}
-          aria-label="simple table"
-        >
-          <TableHead>
+        <Table className={classes.table}>
+          <TableHead sx={{ border: 2, borderColor: "#1F1769" }}>
             <TableRow>
-              <TableCell sx={{ border: 2, borderColor: "#1F1769" }}>
+              <TableCell>
                 <ComponentHeader value={"Groups"} />
               </TableCell>
 
-              <TableCell sx={{ border: 2, borderColor: "#1F1769" }}>
+              <TableCell>
                 <ComponentHeader value={"Subgroups"} />
               </TableCell>
-              <TableCell sx={{ border: 2, borderColor: "#1F1769" }}>
+              <TableCell>
                 <ComponentHeader value={"Clinics / Cohorts"} />
               </TableCell>
             </TableRow>
@@ -50,47 +92,34 @@ const OrganizationStructure = () => {
           <TableBody>
             {rows.map((row) => (
               <TableRow key={row.Groups}>
-                <TableCell
-                  component="th"
-                  scope="row"
-                  sx={{
-                    border: 2,
-                    borderBottom: "none",
-                    borderColor: "#1F1769",
-                  }}
-                >
-                  <Typography
-                    edge="start"
-                    component="div"
-                    sx={{
-                      m: 2,
-                      fontSize: 18,
-                      color: "#1F1769",
-                      display: "flex",
-                    }}
-                  >
-                    {row.Groups}
-                  </Typography>
+                <TableCell component="th" scope="row">
+                  {typeData(row.Groups)}
                 </TableCell>
-                <TableCell sx={{ border: 2, borderColor: "#1F1769" }}>
-                  {row.Subgroups}
-                </TableCell>
-                <TableCell></TableCell>
+                <TableCell>{typeData(row.Subgroups)}</TableCell>
+                <TableCell>{typeData(row.Clinics)}</TableCell>
               </TableRow>
             ))}
           </TableBody>
           <TableHead>
             <TableRow>
-              <TableCell sx={{ border: 2, borderColor: "#1F1769" }}>
-                <ComponentHeader value={"Groups"} />
+              <TableCell className={classes.tabelBorder}>
+                <Button
+                  className={classes.button}
+                  endIcon={<Add className={classes.icon} />}
+                >
+                  Add New
+                </Button>
               </TableCell>
 
-              <TableCell sx={{ border: 2, borderColor: "#1F1769" }}>
-                <ComponentHeader value={"Subgroups"} />
+              <TableCell className={classes.tabelBorder}>
+                <Button
+                  className={classes.button}
+                  endIcon={<Add className={classes.icon} />}
+                >
+                  Add New
+                </Button>
               </TableCell>
-              <TableCell sx={{ border: 2, borderColor: "#1F1769" }}>
-                <ComponentHeader value={"Clinics / Cohorts"} />
-              </TableCell>
+              <TableCell className={classes.tabelBorder}></TableCell>
             </TableRow>
           </TableHead>
         </Table>

@@ -1,15 +1,10 @@
 import React from "react";
 import TextField from "@mui/material/TextField";
+import { makeStyles } from "@material-ui/core/styles";
 const InputForm = (props) => {
   return (
     <>
-      <TextField
-        fullWidth
-        id={props.id}
-        label={props.label}
-        multiline
-        color="success"
-      />
+      <TextField fullWidth label={props.label} sx={{ bgcolor: "#EEEDF6" }} />
     </>
   );
 };
