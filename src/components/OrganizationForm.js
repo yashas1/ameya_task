@@ -111,11 +111,11 @@ const OrganizationForm = () => {
           </Grid>
         </Grid>
         <Grid item xs={4}>
-          <Card sx={{ minWidth: 275, m: 10, height: 200 }}>
+          <Card sx={{ minWidth: 275, m: 10, height: 200, bgcolor: "#EEEDF6" }}>
             <CardContent>
               <Typography
                 edge="start"
-                variant="h6"
+                variant="h1"
                 component="div"
                 sx={{
                   fontSize: 18,

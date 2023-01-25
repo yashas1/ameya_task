@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 const Banner = () => {
   return (
-    <Box m={3} pt={3} sx={{ bgcolor: "EEEDFC" }}>
+    <Box sx={{ minWidth: 275, m: 3, ml: 3, bgcolor: "#EEEDF6" }}>
       <Typography
         edge="start"
         variant="h6"
