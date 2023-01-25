@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Typography from "@mui/material/Typography";
-import ComponentHeader from "./ComponentHeader";
+import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import { Grid } from "@mui/material";
 import InputLabel from "@mui/material/InputLabel";
@@ -8,11 +8,10 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Card from "@mui/material/Card";
-
+import ComponentHeader from "./ComponentHeader";
 import CardContent from "@mui/material/CardContent";
 import InputForm from "./InputForm";
-
-const OrganizationForm = () => {
+const ContactForm = () => {
   const [country, setCountry] = useState("");
   const [state, setState] = useState("");
 
@@ -20,7 +19,7 @@ const OrganizationForm = () => {
     <>
       <Grid container spacing={2}>
         <Grid item xs={7}>
-          <ComponentHeader value={"Organization Information"} />
+          <ComponentHeader value={"Contact Person"} />
           <Box
             component="form"
             sx={{
@@ -30,19 +29,13 @@ const OrganizationForm = () => {
             autoComplete="off"
           >
             <div>
-              <InputForm
-                label="Organization Name"
-                id="outlined-multiline-flexible"
-              />
-
-              <InputForm
-                id="outlined-multiline-flexible"
-                label="Organization Address"
-              />
+              <InputForm label="FirstName" id="FirstName" />
+              <InputForm id="LastName" label="Last Name" />
+              <InputForm id="Email" label="Email" />
             </div>
           </Box>
           <Grid container spacing={2}>
-            <Grid item xs={6}>
+            <Grid item xs={2}>
               <Box
                 sx={{
                   mt: 1,
@@ -51,47 +44,42 @@ const OrganizationForm = () => {
                 }}
               >
                 <FormControl fullWidth>
-                  <InputLabel id="demo-simple-select-label">Country</InputLabel>
+                  <InputLabel id="demo-simple-select-label">+1</InputLabel>
                   <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
-                    value={country}
-                    label="country"
+                    value={"+1"}
+                    label="+1"
                     onChange={(e) => setCountry(e.target.value)}
                   >
-                    <MenuItem value={10}>Canada</MenuItem>
-                    <MenuItem value={20}>India</MenuItem>
-                    <MenuItem value={30}>US</MenuItem>
+                    <MenuItem value={10}>+1</MenuItem>
+                    <MenuItem value={20}>+2</MenuItem>
+                    <MenuItem value={30}>+3</MenuItem>
                   </Select>
                 </FormControl>
               </Box>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={10}>
               <Box sx={{ mt: 1, p: 1, ml: 2 }}>
-                <FormControl fullWidth>
-                  <InputLabel id="demo-simple-select-label">State</InputLabel>
-                  <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={state}
-                    label="State"
-                    onChange={(e) => setState(e.target.value)}
-                  >
-                    <MenuItem value={10}>On</MenuItem>
-                    <MenuItem value={20}>Vc</MenuItem>
-                    <MenuItem value={30}>Tm</MenuItem>
-                  </Select>
-                </FormControl>
+                <InputForm id="Phone" label="Phone Number" />
               </Box>
             </Grid>
           </Grid>
         </Grid>
         <Grid item xs={5}>
+          <TextField
+            fullWidth
+            id="Title"
+            label="Title"
+            multiline
+            sx={{ mt: 10, ml: 2 }}
+            color="success"
+          />
           <Card
             sx={{
               minWidth: 275,
-              mt: 10,
-              ml: 3,
+              mt: 2,
+              ml: 2,
               height: 200,
               bgcolor: "#EEEDF6",
             }}
@@ -107,7 +95,7 @@ const OrganizationForm = () => {
                   color: "#8F5FCA",
                 }}
               >
-                Upload Organization Logo
+                Upload Contact's Profile Photo
               </Typography>
             </CardContent>
           </Card>
@@ -116,4 +104,5 @@ const OrganizationForm = () => {
     </>
   );
 };
-export default OrganizationForm;
+
+export default ContactForm;
